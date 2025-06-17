@@ -2,8 +2,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { TooltipProvider } from '@/components/ui/tooltip';
-import AppProviders from './providers/AppProviders';
+import { TooltipProvider } from '@/components/ui/Tooltip';
+import AppProviders from '@/providers/AppProviders';
 import { AppLayout } from './components/layout/AppLayout';
 import routes from '@/App.routes';
 

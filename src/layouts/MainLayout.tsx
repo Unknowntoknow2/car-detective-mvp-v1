@@ -2,7 +2,7 @@
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/Tooltip";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
