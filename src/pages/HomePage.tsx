@@ -1,3 +1,5 @@
+import LookupTabs from "@/components/lookup/LookupTabs";
+import LookupTabs from "@/components/lookup/LookupTabs";
 // src/pages/index.tsx
 
 import { useEffect, useRef, useState } from "react";
@@ -10,7 +12,6 @@ import PremiumServicesGrid from "@/pages/PremiumServicesGrid";
 import { PremiumTabs } from "@/components/premium/premium-core/PremiumTabs";
 import { MarketingBanner } from "@/components/marketing/MarketingBanner";
 import { AnnouncementBar } from "@/components/marketing/AnnouncementBar";
-import { LookupTabs } from "@/components/home/LookupTabs";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useValuation } from "@/contexts/ValuationContext";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +23,7 @@ export default function Index() {
   const { processFreeValuation, processPremiumValuation } = useValuation();
   const navigate = useNavigate();
 
+<LookupTabs />
   useEffect(() => {
     console.log("HOME PAGE: Component mounted");
   }, []);
@@ -139,7 +141,6 @@ export default function Index() {
                     Get a quick, AI-powered estimate based on market data.
                   </p>
                 </div>
-                <LookupTabs defaultTab="vin" onSubmit={handleFreeFormSubmit} />
               </TabsContent>
               <TabsContent value="premium" className="mt-6">
                 <div className="text-center mb-6">
