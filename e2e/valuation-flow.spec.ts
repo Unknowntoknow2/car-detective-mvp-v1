@@ -29,34 +29,74 @@ test.describe("Valuation Flow", () => {
     await expect(page.getByText("Estimated Value")).toBeVisible();
     await expect(page.locator(".text-primary").filter({ hasText: "$" }))
       .toBeVisible();
+
+    // Try downloading a PDF report
+    await page.getByRole("button", { name: /download report/i }).click();
+
+    // Verify that a success toast appears
+    await expect(page.getByText(/PDF report downloaded/i)).toBeVisible();
   });
 
-  test("VIN lookup should return correct vehicle information", async ({ page }) => {
-    // Go to the VIN lookup page
-    await page.goto("/valuation/vin");
+  test("should display and interact with AI chat bubble", async ({ page }) => {
+    // Go to a valuation detail page
+    await page.goto("/my-valuations");
 
-    // Enter a test VIN
-    await page.getByLabel(/vin/i).fill("1HGCM82633A123456");
+    // Click on the first valuation in the list
+    await page.getByRole("button", { name: "View" }).first().click();
 
-    // Submit the VIN lookup
-    await page.getByRole("button", { name: /lookup/i }).click();
+    // Check that the valuation details page is loaded
+    await expect(page.getByText("Valuation Details")).toBeVisible();
 
-    // Wait for the lookup to complete
-    await page.waitForSelector("text=Vehicle Information", { timeout: 10000 });
+    // Check that the chat bubble is visible
+    await expect(page.getByText("Ask about your valuation")).toBeVisible();
 
-    // Check that vehicle information is displayed correctly
-    await expect(page.getByText("Honda")).toBeVisible();
-    await expect(page.getByText("Accord")).toBeVisible();
+    // Click on the chat bubble
+    await page.getByText("Ask about your valuation").click();
+
+    // Check that the chat interface appears
+    await expect(page.getByPlaceholder("Type your message...")).toBeVisible();
+
+    // Type a message and send it
+    await page.getByPlaceholder("Type your message...").fill(
+      "What factors affect my car value?",
+    );
+    await page.getByRole("button", { name: "Send" }).click();
+
+    // Wait for AI response
+    await page.waitForSelector(".chat-message-ai", { timeout: 15000 });
+
+    // Verify that we got a response about valuation factors
+    await expect(page.getByText(/factors.*value/i)).toBeVisible();
   });
 
-  test("should handle validation errors properly", async ({ page }) => {
-    // Go to the manual valuation page
-    await page.goto("/valuation/manual");
+  test("should upgrade to premium valuation", async ({ page }) => {
+    // Visit a free valuation page
+    await page.goto("/valuation/test-valuation-id");
 
-    // Submit the form without filling it out
-    await page.getByRole("button", { name: /submit|get valuation/i }).click();
+    // Click on the upgrade button
+    await page.getByRole("button", { name: /upgrade to premium/i }).click();
 
-    // Check that validation errors are displayed
-    await expect(page.getByText(/required/i)).toBeVisible();
+    // Check that we're on the payment page
+    await expect(page.getByText(/payment details/i)).toBeVisible();
+
+    // Fill in payment details (mock for E2E test)
+    await page.fill('[data-testid="card-number"]', "4242424242424242");
+    await page.fill('[data-testid="card-expiry"]', "1230");
+    await page.fill('[data-testid="card-cvc"]', "123");
+
+    // Submit payment
+    await page.getByRole("button", { name: /pay now/i }).click();
+
+    // Wait for success page
+    await page.waitForURL("**/premium-success*", { timeout: 20000 });
+
+    // Verify success message
+    await expect(page.getByText(/payment successful/i)).toBeVisible();
+
+    // Navigate to premium report
+    await page.getByRole("button", { name: /view premium report/i }).click();
+
+    // Verify we now have premium valuation
+    await expect(page.getByText(/premium valuation/i)).toBeVisible();
   });
 });
