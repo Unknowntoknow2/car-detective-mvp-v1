@@ -1,0 +1,19 @@
+// ✅ File: tsconfig.app.json
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": ["src"]
+}
