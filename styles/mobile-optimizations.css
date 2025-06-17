@@ -1,0 +1,66 @@
+/* Mobile optimizations for premium page */
+@media (max-width: 768px) {
+  .premium-hero {
+    padding: 2rem 1rem;
+  }
+
+  .premium-feature-card {
+    padding: 1rem;
+  }
+
+  .premium-pricing-card {
+    margin: 0 1rem;
+  }
+}
+
+/* Animation delays for premium feature cards */
+.premium-feature-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.premium-feature-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.premium-feature-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.premium-feature-delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Gradient backgrounds */
+.premium-gradient-bg {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+/* Hover effects */
+.premium-card-hover {
+  transition: all 0.3s ease;
+}
+
+.premium-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom scrollbar for premium page */
+.premium-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.premium-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

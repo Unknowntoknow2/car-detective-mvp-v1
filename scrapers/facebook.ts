@@ -1,73 +1,98 @@
-// src/utils/scrapers/facebook.ts
 
-import puppeteer from "puppeteer-extra";
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import { MarketplaceListing, ScraperConfig, ScraperResult } from './types';
 
-puppeteer.use(StealthPlugin());
-
-export async function fetchFacebookMarketplaceListings(
+export async function scrapeFacebookMarketplace(
   make: string,
   model: string,
-  zip = "95814",
-  maxResults = 5,
-) {
-  const listings: any[] = [];
-
-  const browser = await puppeteer.launch({
-    headless: true, // ✅ Fixed type error
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
-
-  const page = await browser.newPage();
-
-  // Emulate iPhone browser
-  await page.setUserAgent(
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15A372 Safari/604.1",
-  );
-  await page.setViewport({ width: 375, height: 812, isMobile: true });
-
-  const query = encodeURIComponent(`${make} ${model}`);
-  const url =
-    `https://www.facebook.com/marketplace/${zip}/search?query=${query}`;
-  console.log("🌐 Navigating to:", url);
-
+  year: number,
+  zipCode?: string,
+  config: ScraperConfig = { maxResults: 10, timeout: 30000, retries: 2 }
+): Promise<ScraperResult> {
   try {
-    await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
+    console.log(`🔍 Scraping Facebook Marketplace for ${year} ${make} ${model}`);
+    
+    // This would integrate with BrightData's browser automation API
+    // For MVP, we'll use a placeholder that calls a BrightData endpoint
+    const searchQuery = `${year} ${make} ${model}`;
+    
+    // In production, this would be your BrightData API endpoint
+    const brightDataEndpoint = 'https://api.brightdata.com/scraper/facebook-marketplace';
+    
+    const response = await fetch(brightDataEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.BRIGHTDATA_API_KEY}`,
+      },
+      body: JSON.stringify({
+        query: searchQuery,
+        location: zipCode,
+        max_results: config.maxResults,
+        timeout: config.timeout,
+      }),
+    });
 
-    await page.waitForSelector('[role="article"]', { timeout: 20000 });
+    if (!response.ok) {
+      throw new Error(`BrightData API error: ${response.status}`);
+    }
 
-    const results = await page.evaluate((max) => {
-      const items: any[] = [];
-      const cards = document.querySelectorAll('[role="article"]');
-      for (let i = 0; i < cards.length && items.length < max; i++) {
-        const el = cards[i];
-        const title = el.querySelector("span")?.textContent || "";
-        const price =
-          el.querySelector('span[dir="auto"]')?.textContent?.replace(
-            /[^\d]/g,
-            "",
-          ) || "";
-        const image = el.querySelector("img")?.getAttribute("src") || "";
-        const link = el.querySelector("a")?.getAttribute("href") || "";
+    const data = await response.json();
+    
+    // Transform BrightData response to our format
+    const listings: MarketplaceListing[] = data.results?.map((item: any) => ({
+      source: 'facebook',
+      title: item.title || `${year} ${make} ${model}`,
+      price: parsePrice(item.price),
+      mileage: parseMileage(item.description),
+      year: year,
+      make: make,
+      model: model,
+      location: item.location || 'Unknown',
+      url: item.url || '',
+      imageUrl: item.image_url,
+      postedDate: item.posted_date || new Date().toISOString(),
+      condition: extractCondition(item.description),
+      description: item.description,
+      sellerType: item.seller_type === 'business' ? 'dealer' : 'private',
+    })) || [];
 
-        items.push({
-          title,
-          price: Number(price),
-          image,
-          url: link ? `https://www.facebook.com${link}` : "",
-          source: "facebook",
-          location: "Marketplace",
-          postedDate: new Date().toISOString(),
-        });
-      }
-      return items;
-    }, maxResults);
+    return {
+      success: true,
+      listings,
+      source: 'facebook',
+      searchParams: { make, model, year, zipCode },
+    };
 
-    listings.push(...results);
-  } catch (error: any) {
-    console.error("❌ Facebook Marketplace scrape failed:", error.message);
+  } catch (error) {
+    console.error('Facebook scraping error:', error);
+    return {
+      success: false,
+      listings: [],
+      error: error instanceof Error ? error.message : 'Unknown error',
+      source: 'facebook',
+      searchParams: { make, model, year, zipCode },
+    };
   }
+}
 
-  await browser.close();
-  return listings;
+function parsePrice(priceString: string): number {
+  if (!priceString) return 0;
+  const cleaned = priceString.replace(/[^0-9]/g, '');
+  return parseInt(cleaned) || 0;
+}
+
+function parseMileage(description: string): number | undefined {
+  if (!description) return undefined;
+  const mileageMatch = description.match(/(\d{1,3}(?:,\d{3})*)\s*(?:miles?|mi)/i);
+  if (mileageMatch) {
+    return parseInt(mileageMatch[1].replace(/,/g, ''));
+  }
+  return undefined;
+}
+
+function extractCondition(description: string): string | undefined {
+  if (!description) return undefined;
+  const conditions = ['excellent', 'good', 'fair', 'poor'];
+  const lowerDesc = description.toLowerCase();
+  return conditions.find(condition => lowerDesc.includes(condition));
 }
