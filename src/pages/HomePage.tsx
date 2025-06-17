@@ -1,6 +1,5 @@
-import LookupTabs from "@/components/lookup/LookupTabs";
-import LookupTabs from "@/components/lookup/LookupTabs";
 // src/pages/index.tsx
+import LookupTabs from "@/components/lookup/LookupTabs";
 
 import { useEffect, useRef, useState } from "react";
 import EnhancedHeroSection from "@/pages/EnhancedHeroSection";
@@ -23,7 +22,6 @@ export default function Index() {
   const { processFreeValuation, processPremiumValuation } = useValuation();
   const navigate = useNavigate();
 
-<LookupTabs />
   useEffect(() => {
     console.log("HOME PAGE: Component mounted");
   }, []);
