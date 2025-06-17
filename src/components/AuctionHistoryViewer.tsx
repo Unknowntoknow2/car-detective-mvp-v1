@@ -1,7 +1,7 @@
 // src/components/valuation/AuctionHistoryViewer.tsx
 
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 
 export interface AuctionData {
   vin: string;

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { AcceptedOfferCard } from '@/components/dealer/AcceptedOfferCard';
 import { useDealerOfferComparison } from '@/hooks/useDealerOfferComparison';
 

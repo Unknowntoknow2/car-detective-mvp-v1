@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Card } from '@/components/ui/card';
+import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { CompetitorPrice, getCachedCompetitorPrices, calculateAverageCompetitorPrice } from '@/services/competitorPriceService';

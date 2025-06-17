@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/Card';
 
 interface QrCodeDownloadProps {
   url: string;

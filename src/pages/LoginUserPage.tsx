@@ -6,12 +6,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/Card";
 import { SharedLoginForm } from "@/components/auth/forms/SharedLoginForm";
 import { Toaster } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, User } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 
 export default function LoginUserPage() {

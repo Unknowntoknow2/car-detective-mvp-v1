@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/badge';
 import { Download, Mail, Users, FileText } from 'lucide-react';
 import { useDealerNotifications } from '@/hooks/useDealerNotifications';

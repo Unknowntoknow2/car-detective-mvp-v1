@@ -2,14 +2,14 @@ import React from "react";
 import { useDealerInsights } from "@/hooks/useDealerInsights";
 import { usePremiumDealer } from "@/hooks/usePremiumDealer";
 import DealerGuard from "@/guards/DealerGuard";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/Card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { BarChart, Download, Loader2, PieChart } from "lucide-react";

@@ -3,8 +3,8 @@ import React from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useValuationResult } from '@/hooks/useValuationResult';
 import MainLayout from '@/components/layout/MainLayout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 export default function OffersPage() {
   const { user } = useAuth();

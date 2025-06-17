@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { useCompetitorPrices } from '@/hooks/useCompetitorPrices'
 import { calculateAverageCompetitorPrice } from '@/services/competitorPriceService'
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react'

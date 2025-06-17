@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { CarfaxBadge } from "./hero/CarfaxBadge";
 import { PriceDisplay } from "./hero/PriceDisplay";
 import { FeatureCards } from "./hero/FeatureCards";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { Building, ChartBar, FileBarChart, Shield, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 

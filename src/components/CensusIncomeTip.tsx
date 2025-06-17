@@ -1,6 +1,6 @@
 import React from "react";
 import { useCensus } from "@/hooks/useCensus";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { DollarSign, Loader2 } from "lucide-react";
 
 interface CensusIncomeTipProps {

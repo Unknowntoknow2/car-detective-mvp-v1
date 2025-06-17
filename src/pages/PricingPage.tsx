@@ -2,8 +2,8 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MainLayout } from '@/components/layout';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Check, Trophy, CreditCard, Zap } from 'lucide-react';
 import { usePremiumPayment } from '@/hooks/usePremiumPayment';
 import { useAuth } from '@/hooks/useAuth';

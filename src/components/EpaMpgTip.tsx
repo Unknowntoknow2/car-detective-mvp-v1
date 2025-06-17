@@ -1,6 +1,6 @@
 import React from "react";
 import { useEpaMpg } from "@/hooks/useEpaMpg";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { Droplets, Loader2 } from "lucide-react";
 
 interface EpaMpgTipProps {

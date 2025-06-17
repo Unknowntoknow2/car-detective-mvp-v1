@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Check, ChevronDown, Zap } from "lucide-react";
 
 interface PremiumHeroProps {

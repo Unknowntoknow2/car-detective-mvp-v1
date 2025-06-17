@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card'
 import { useScrapedListings } from '@/hooks/useScrapedListings'
 import { ExternalLink, MapPin, Clock } from 'lucide-react'
 

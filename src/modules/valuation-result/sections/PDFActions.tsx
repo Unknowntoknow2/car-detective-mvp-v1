@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Download, Lock, Mail } from "lucide-react";
 import { BodyS, Heading } from "@/components/ui-kit/typography";
 import { PremiumBadge } from "@/components/ui/premium-badge";

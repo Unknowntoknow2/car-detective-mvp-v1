@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchAuctionResultsByVin } from "@/services/auction";
 import { AuctionResult } from "@/types/auction";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/badge";
 
 interface AuctionResultsProps {

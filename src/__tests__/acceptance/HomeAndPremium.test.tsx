@@ -69,7 +69,7 @@ vi.mock('next/navigation', () => ({
 }));
 
 // Mock the routes module
-vi.mock('@/components/App.routes', () => ({
+vi.mock('@/App.routes', () => ({
   __esModule: true,
   default: [
     {

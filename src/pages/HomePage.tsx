@@ -1,12 +1,12 @@
 // src/pages/index.tsx
 
 import { useEffect, useRef, useState } from "react";
-import { EnhancedHeroSection } from "@/components/home/EnhancedHeroSection";
-import { KeyFeatures } from "@/components/home/KeyFeatures";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { ComparisonTable } from "@/components/home/ComparisonTable";
-import { ValuePropositionSection } from "@/components/home/ValuePropositionSection";
-import { PremiumServicesGrid } from "@/components/home/PremiumServicesGrid";
+import { EnhancedHeroSection } from "@/pages/EnhancedHeroSection";
+import { KeyFeatures } from "@/pages/KeyFeatures";
+import { TestimonialsSection } from "@/pages/TestimonialsSection";
+import { ComparisonTable } from "@/pages/ComparisonTable";
+import { ValuePropositionSection } from "@/pages/ValuePropositionSection";
+import { PremiumServicesGrid } from "@/pages/PremiumServicesGrid";
 import { PremiumTabs } from "@/components/premium/premium-core/PremiumTabs";
 import { MarketingBanner } from "@/components/marketing/MarketingBanner";
 import { AnnouncementBar } from "@/components/marketing/AnnouncementBar";

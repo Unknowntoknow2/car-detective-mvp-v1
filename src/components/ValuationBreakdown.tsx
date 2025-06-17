@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
 import { ValuationHistory, ValuationBreakdownItem } from "@/types/valuation-history";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 

@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { useAccidentImpact } from '@/hooks/useAccidentImpact';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { AlertTriangle, Check, ArrowRight, Loader2 } from 'lucide-react';
 import { formatCurrency } from '@/utils/formatters';
 

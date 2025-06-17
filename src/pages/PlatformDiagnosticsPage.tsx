@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { MainLayout } from '@/components/layout';
 import { SEO } from '@/components/layout/seo';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { supabase } from '@/lib/supabaseClient';
 import { Sentry } from '@/lib/sentry';
 

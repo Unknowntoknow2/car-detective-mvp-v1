@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/Button';
 import { RefreshCw, CheckCircle, AlertTriangle } from 'lucide-react';
 import { useCorrectedValuation } from '@/hooks/useCorrectedValuation';
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { CheckCircle, Car, Calendar, Gauge, Wrench, Fuel } from 'lucide-react';
 
 interface VehicleFoundCardProps {

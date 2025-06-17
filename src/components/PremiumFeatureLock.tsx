@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import { Lock } from "lucide-react";
 import { usePremiumPayment } from "@/hooks/usePremiumPayment";
 
