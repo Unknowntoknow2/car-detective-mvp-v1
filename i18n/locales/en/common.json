@@ -1,0 +1,16 @@
+
+{
+  "app": {
+    "name": "Car Detective",
+    "tagline": "Get accurate vehicle valuations instantly"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "save": "Save",
+    "back": "Back"
+  }
+}
