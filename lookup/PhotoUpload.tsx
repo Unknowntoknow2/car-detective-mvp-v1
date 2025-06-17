@@ -1,10 +1,10 @@
 
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { ImagePlus, Loader2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { ImagePlus, Loader2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface PhotoUploadProps {
   onSubmit: (files: File[]) => void;
@@ -24,7 +24,6 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
     const files = Array.from(e.target.files);
     setSelectedFiles(files);
 
-    // Create previews
     const newPreviews = files.map(file => URL.createObjectURL(file));
     setPreviews(newPreviews);
   };

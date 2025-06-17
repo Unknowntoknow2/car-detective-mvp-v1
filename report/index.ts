@@ -1,3 +1,6 @@
-// Export valuation report components
-export { default as ValuationReport } from "./ValuationReport";
-export { default as ValuationReportHeader } from "./ValuationReportHeader";
+// Export report-related components
+export * from "../../valuation/result/ValuationSummary";
+export * from "../../valuation/result/PriceRangeChart";
+export * from "../../valuation/result/MarketComparison";
+
+export const PremiumReport = () => null;

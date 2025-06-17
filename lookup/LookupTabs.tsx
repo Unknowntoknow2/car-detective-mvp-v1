@@ -1,36 +1,58 @@
 
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import React from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { VINLookupForm } from "@/components/lookup/vin-core/VINLookupForm";
+import { PlateLookup } from "@/components/lookup/PlateLookup";
+import { ManualLookup } from "@/components/premium/lookup/ManualLookup";
 
 interface LookupTabsProps {
-  defaultTab?: string;
+  lookup: "vin" | "plate" | "manual";
+  onLookupChange: (value: "vin" | "plate" | "manual") => void;
+  formProps: {
+    onSubmit: (data: any) => void;
+    isLoading?: boolean;
+    submitButtonText?: string;
+  };
 }
 
-export const LookupTabs: React.FC<LookupTabsProps> = ({ defaultTab = 'vin' }) => {
+export function LookupTabs({
+  lookup,
+  onLookupChange,
+  formProps,
+}: LookupTabsProps) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Vehicle Lookup</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Tabs defaultValue={defaultTab}>
-          <TabsList>
-            <TabsTrigger value="vin">VIN Lookup</TabsTrigger>
-            <TabsTrigger value="plate">License Plate</TabsTrigger>
-            <TabsTrigger value="manual">Manual Entry</TabsTrigger>
-          </TabsList>
-          <TabsContent value="vin">
-            <p>VIN lookup form would go here</p>
-          </TabsContent>
-          <TabsContent value="plate">
-            <p>License plate lookup form would go here</p>
-          </TabsContent>
-          <TabsContent value="manual">
-            <p>Manual entry form would go here</p>
-          </TabsContent>
-        </Tabs>
-      </CardContent>
-    </Card>
+    <Tabs
+      value={lookup}
+      onValueChange={onLookupChange as (value: string) => void}
+      className="w-full"
+    >
+      <TabsList className="grid w-full grid-cols-3">
+        <TabsTrigger value="vin">VIN</TabsTrigger>
+        <TabsTrigger value="plate">License Plate</TabsTrigger>
+        <TabsTrigger value="manual">Manual Entry</TabsTrigger>
+      </TabsList>
+      
+      <TabsContent value="vin" className="space-y-4">
+        <VINLookupForm
+          onSubmit={(vin: string) => formProps.onSubmit({ vin })}
+          isLoading={formProps.isLoading || false}
+        />
+      </TabsContent>
+      
+      <TabsContent value="plate" className="space-y-4">
+        <PlateLookup
+          tier="premium"
+          onVehicleFound={(data: any) => formProps.onSubmit(data)}
+        />
+      </TabsContent>
+      
+      <TabsContent value="manual" className="space-y-4">
+        <ManualLookup
+          onSubmit={formProps.onSubmit}
+          isLoading={formProps.isLoading || false}
+          submitButtonText={formProps.submitButtonText || "Continue"}
+        />
+      </TabsContent>
+    </Tabs>
   );
-};
+}
