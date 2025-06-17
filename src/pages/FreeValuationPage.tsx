@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import { AnnouncementBar } from "@/components/marketing/AnnouncementBar";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";

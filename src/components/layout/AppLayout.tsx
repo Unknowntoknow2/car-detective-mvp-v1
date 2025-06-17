@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Navbar } from '@/components/layout/Navbar';
+import Navbar from "@/components/layout/Navbar";
 import Footer from './Footer';
 
 interface AppLayoutProps {

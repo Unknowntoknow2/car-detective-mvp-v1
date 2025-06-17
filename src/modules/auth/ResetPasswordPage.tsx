@@ -18,7 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/Input";
 import { CDButton } from "@/components/ui-kit/CDButton";
 import { toast } from "sonner";
 import { ArrowRight, KeyRound, Mail } from "lucide-react";

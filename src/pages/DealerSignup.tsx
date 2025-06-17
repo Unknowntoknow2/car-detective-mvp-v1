@@ -11,7 +11,7 @@ import {
 import { DealerSignupForm } from "@/components/dealer/DealerSignupForm";
 import { Button } from "@/components/ui/Button";
 import { Link } from "react-router-dom";
-import { Navbar } from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Building2 } from "lucide-react";
 

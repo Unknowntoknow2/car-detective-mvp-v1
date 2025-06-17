@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { AnnouncementBar } from "@/components/marketing/AnnouncementBar";
 import { useTranslation } from "react-i18next";

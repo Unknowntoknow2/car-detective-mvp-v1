@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/Button";
-import { Label } from "@/components/ui/label";
+import { Label } from "@/components/ui/Label";
 import {
   Select,
   SelectContent,

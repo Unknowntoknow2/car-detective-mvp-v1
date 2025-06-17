@@ -1,5 +1,3 @@
-// Add real utils later! For now, just a placeholder.
-export function noop() {}
-
-x
-
+export function cn(...classes) {
+  return classes.filter(Boolean).join(' ');
+}

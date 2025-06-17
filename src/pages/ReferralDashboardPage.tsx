@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/badge";
 import { Copy, Users, DollarSign, TrendingUp, Share2 } from "lucide-react";
 import { toast } from "sonner";
-import { Navbar } from "@/components/layout/Navbar";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ReferralModal } from "@/components/referrals/ReferralModal";
 
