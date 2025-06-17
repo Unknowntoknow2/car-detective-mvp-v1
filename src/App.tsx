@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { TooltipProvider } from '@/components/ui/Tooltip';
 import AppProviders from '@/providers/AppProviders';
 import { AppLayout } from './components/layout/AppLayout';
-import routes from '@/App.routes';
+import routes from '@/components/App.routes';
 
 const queryClient = new QueryClient({
   defaultOptions: {
