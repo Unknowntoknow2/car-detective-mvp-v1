@@ -1,0 +1,69 @@
+
+{
+  "adjustments": {
+    "condition": {
+      "excellent": 0.05,
+      "good": 0,
+      "fair": -0.05,
+      "poor": -0.15
+    },
+    "mileage": {
+      "baseline": 12000,
+      "adjustment": -0.0005
+    },
+    "trims": {
+      "Toyota": {
+        "Camry": [
+          {"trim": "LE", "percent": 0},
+          {"trim": "SE", "percent": 0.05},
+          {"trim": "XLE", "percent": 0.10},
+          {"trim": "XSE", "percent": 0.12},
+          {"trim": "TRD", "percent": 0.15}
+        ],
+        "Corolla": [
+          {"trim": "L", "percent": 0},
+          {"trim": "LE", "percent": 0.03},
+          {"trim": "SE", "percent": 0.06},
+          {"trim": "XLE", "percent": 0.08},
+          {"trim": "XSE", "percent": 0.10}
+        ]
+      },
+      "Honda": {
+        "Civic": [
+          {"trim": "LX", "percent": 0},
+          {"trim": "Sport", "percent": 0.04},
+          {"trim": "EX", "percent": 0.07},
+          {"trim": "Touring", "percent": 0.12}
+        ],
+        "Accord": [
+          {"trim": "LX", "percent": 0},
+          {"trim": "Sport", "percent": 0.06},
+          {"trim": "EX", "percent": 0.08},
+          {"trim": "EX-L", "percent": 0.12},
+          {"trim": "Touring", "percent": 0.15}
+        ]
+      }
+    },
+    "premiumFeatures": {
+      "leather": { "value": 0.02, "description": "Leather Interior" },
+      "sunroof": { "value": 0.01, "description": "Sunroof" },
+      "navigation": { "value": 0.01, "description": "Navigation System" },
+      "premium_audio": {
+        "value": 0.015,
+        "description": "Premium Audio System"
+      },
+      "third_row": { "value": 0.02, "description": "Third Row Seating" },
+      "awd": { "value": 0.03, "description": "All-Wheel Drive" }
+    },
+    "featureValueCap": 0.10
+  },
+  "confidenceScores": {
+    "baselineScore": 80,
+    "adjustments": {
+      "hasVin": 5,
+      "hasAccidentData": 3,
+      "hasPhotoAnalysis": 5,
+      "hasPremiumFeatures": 2
+    }
+  }
+}

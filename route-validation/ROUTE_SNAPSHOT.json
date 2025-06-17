@@ -1,0 +1,20 @@
+[
+  "/",
+  "/login",
+  "/register",
+  "/dealer-dashboard",
+  "/dealer-insights",
+  "/premium",
+  "/premium-valuation",
+  "/view-offer/:token",
+  "/share/:token",
+  "/payment/success",
+  "/payment/cancelled",
+  "/my-valuations",
+  "/auth",
+  "/login-user",
+  "/login-dealer",
+  "/dealer-signup",
+  "/free",
+  "/valuation-result/:id"
+]
