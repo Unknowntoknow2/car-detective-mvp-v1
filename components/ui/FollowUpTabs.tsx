@@ -1,0 +1,1 @@
+export default function FollowUpTabs() { return null; }
