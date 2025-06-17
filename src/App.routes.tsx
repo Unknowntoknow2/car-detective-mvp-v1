@@ -3,7 +3,7 @@ import React from "react";
 import { RouteObject } from "react-router-dom";
 
 // ✅ Import the correct components
-import EnhancedHomePage from "@/components/home/EnhancedHomePage";
+import EnhancedHomePage from "@/pages/EnhancedHomePage";
 import AboutPage from "@/pages/AboutPage";
 import VinLookupPage from "@/pages/VinLookupPage";
 import AuthPage from "@/pages/AuthPage";
